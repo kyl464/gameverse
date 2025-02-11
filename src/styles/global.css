@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #2e1a47; /* Warna ungu gelap yang lebih soft */
+  --foreground: #ffffff;
+  --border-radius: 12px;
+  --carousel-max-height: 350px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e122f; /* Warna ungu yang lebih gelap untuk mode gelap */
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(180deg, #ffffff 0%, #e0c8f5 100%) !important;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #6c3fa5 !important;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan efek bayangan */
+}
+
+.navbar-brand, .nav-link {
+  color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #d4a1f3 !important; /* Warna hover lebih lembut */
+}
+
+/* Card Produk */
+.card {
+  background-color: #ffffff; /* Ungu lebih terang dari latar belakang */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+
+.card .badge {
+  background-color: #8c5ad4; /* Warna ungu pastel */
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(180deg, #d5c2f3, #b899e7); /* Gradasi ungu pastel */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.bg-footer-custom {
+  background-color: #5a3472; /* Ungu pastel lembut */
+  color: white;
+}
+
+.footer-text-light {
+  color: #f3e5f5; /* Putih pastel lembut */
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #d4a1f3; /* Ungu hover yang lebih cerah */
+}
+
+
+
+.input-group .form-control {
+  background-color: #8a6bab; /* Ungu pastel */
+  color: white;
+  border: none;
+}
+.input-group .form-control::placeholder {
+  color: #e5d6f3; /* Warna lebih lembut */
+}
+.input-group .btn-light {
+  background-color: #d4a1f3;
+  color: #6c3fa5;
+}
+
+.carousel-inner img {
+  object-fit: cover;
+  width: 100%;
+  height: 350px; /* Pastikan proporsional */
+}
