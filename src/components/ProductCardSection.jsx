@@ -1,4 +1,12 @@
+import { useRouter } from "next/router";
+
 export default function ProductCardSection({ title, products }) {
+  const router = useRouter();
+
+  const handleCardClick = (slug) => {
+    router.push(`/topupdetails/${slug}`);
+  };
+
   return (
     <section className="my-12 container mx-auto">
       <h3 className="font-bold mb-12 text-start text-gray-600 text-2xl">
@@ -8,12 +16,13 @@ export default function ProductCardSection({ title, products }) {
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative bg-white shadow-lg rounded-2xl transition-all duration-500 hover:scale-105 pt-16"
+            onClick={() => handleCardClick(product.slug)} // Navigasi ke halaman topupdetails
+            className="relative bg-white shadow-lg rounded-2xl transition-all duration-500 hover:scale-105 pt-16 cursor-pointer"
           >
             {/* Floating Large Image */}
             <div className="relative -mt-24 mx-auto w-40 h-40">
               <img
-                src={product.img_url} // Ambil dari database
+                src={product.img_url}
                 alt={product.name}
                 className="w-full h-full object-cover shadow-md border rounded-xl"
               />
