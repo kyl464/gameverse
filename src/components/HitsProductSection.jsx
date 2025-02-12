@@ -7,26 +7,20 @@ export default function HitsProductSection({ title, products }) {
         {title}
       </h2>
       <div className="row g-3">
-        {products.map((product, index) => (
-          <div key={index} className="col-md-4 col-sm-6">
-            <div className="p-3 rounded-3 shadow-sm d-flex align-items-center bg-light">
-              <Image
-                src={product.image}
+        {products.map((product) => (
+          <div key={product.id} className="col-md-4 col-sm-6">
+            <div className="product-card p-3 rounded-3 shadow-sm d-flex align-items-center bg-light transition-all">
+              <img
+                src={product.img_url}
                 alt={product.name}
                 width={60}
                 height={60}
-                className="me-3 border"
+                className="me-3 border rounded"
               />
               <div>
                 <h6 className="mb-1 fw-bold text-black">{product.name}</h6>
                 <p className="text-muted small mb-1">{product.description}</p>
-                <span
-                  className={`badge ${
-                    product.status === "Tersedia" ? "bg-success" : "bg-danger"
-                  }`}
-                >
-                  {product.status}
-                </span>
+                <span className="badge bg-success">Tersedia</span>
               </div>
             </div>
           </div>

@@ -1,55 +1,102 @@
 import { useState } from "react";
 
 export default function Navbar() {
-  const [cartCount, setCartCount] = useState(1);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav
-      className="navbar navbar-expand-lg shadow"
-      style={{ backgroundColor: "#6c3fa5" }}
-    >
-      <div className="container-fluid d-flex justify-content-between align-items-center">
+    <nav className="w-full py-3 px-5 shadow-lg bg-purple-700 relative z-50">
+      <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <a className="navbar-brand fw-bold text-white ms-5" href="#">
-          Game<span className="text-light">verse</span>
+        <a className="text-white text-2xl font-bold" href="#">
+          Game<span className="text-gray-300">verse</span>
         </a>
 
-        {/* Search Bar */}
-        <form className="d-flex flex-grow-1 justify-content-center">
-          <div className="input-group w-auto">
+        {/* Search Bar (Dibungkus div flex agar tetap center) */}
+        <div className="hidden md:flex flex-1 justify-center">
+          <div className="bg-white rounded-md p-1 shadow-md w-72 flex">
             <input
-              className="form-control"
-              type="search"
-              placeholder="Cari produk & transaksi"
-              aria-label="Search"
+              type="text"
+              className="px-3 py-1 w-full outline-none text-gray-800 rounded-l-md"
+              placeholder="Cari produk..."
             />
-            <button className="btn btn-light" type="submit">
-              Search
+            <button className="px-3 py-1 bg-purple-500 text-white rounded-r-md hover:bg-purple-600">
+              Cari
             </button>
           </div>
-        </form>
+        </div>
 
-        {/* Icons */}
-        <ul className="navbar-nav d-flex align-items-center">
-          <li className="nav-item me-3">
-            <i className="bi bi-moon text-white fs-5"></i>
-          </li>
-          <li className="nav-item me-3 position-relative">
-            <i className="bi bi-cart text-white fs-5"></i>
-            {cartCount > 0 && (
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cartCount}
-              </span>
-            )}
-          </li>
-          <li className="nav-item me-3">
-            <i className="bi bi-house text-white fs-5"></i>
-          </li>
-          <li className="nav-item">
-            <i className="bi bi-person text-white fs-5 me-5"></i>
-          </li>
-        </ul>
+        {/* Kategori Dropdown */}
+        <div className="relative hidden md:block">
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="text-white text-lg focus:outline-none flex items-center"
+          >
+            Kategori ▼
+          </button>
+          {dropdownOpen && (
+            <ul className="absolute right-0 mt-2 bg-white text-gray-700 shadow-lg rounded-md w-48 z-50">
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                  Top-Up Game
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                  E-Wallet
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                  Voucher Digital
+                </a>
+              </li>
+            </ul>
+          )}
+        </div>
+
+        {/* Burger Menu (Mobile) */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-white text-2xl md:hidden focus:outline-none"
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Menu Mobile */}
+      {menuOpen && (
+        <div className="md:hidden flex flex-col items-center bg-purple-700 py-3 shadow-md">
+          {/* Dropdown di mobile */}
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="text-white text-lg focus:outline-none flex items-center"
+            >
+              Kategori ▼
+            </button>
+            {dropdownOpen && (
+              <ul className="absolute mt-2 bg-white text-gray-700 shadow-lg rounded-md w-48 z-50">
+                <li>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                    Top-Up Game
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                    E-Wallet
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                    Voucher Digital
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
