@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --background: #2e1a47; /* Warna ungu gelap yang lebih soft */
   --foreground: #ffffff;

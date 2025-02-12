@@ -5,7 +5,7 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="w-full py-3 px-5 shadow-lg bg-purple-700 relative z-50">
+    <nav className="w-full py-3 px-5 shadow-lg navbar relative z-50">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <a className="text-white text-2xl font-bold" href="#">
@@ -13,7 +13,7 @@ export default function Navbar() {
         </a>
 
         {/* Search Bar (Dibungkus div flex agar tetap center) */}
-        <div className="hidden md:flex flex-1 justify-center">
+        <div className="hidden md:flex flex-1 justify-end">
           <div className="bg-white rounded-md p-1 shadow-md w-72 flex">
             <input
               type="text"
@@ -24,35 +24,6 @@ export default function Navbar() {
               Cari
             </button>
           </div>
-        </div>
-
-        {/* Kategori Dropdown */}
-        <div className="relative hidden md:block">
-          <button
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="text-white text-lg focus:outline-none flex items-center"
-          >
-            Kategori ▼
-          </button>
-          {dropdownOpen && (
-            <ul className="absolute right-0 mt-2 bg-white text-gray-700 shadow-lg rounded-md w-48 z-50">
-              <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-                  Top-Up Game
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-                  E-Wallet
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-                  Voucher Digital
-                </a>
-              </li>
-            </ul>
-          )}
         </div>
 
         {/* Burger Menu (Mobile) */}

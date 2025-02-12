@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 import CustomCarousel from "@/components/Carousel";
 import HitsProductSection from "@/components/HitsProductSection";
 import Footer from "@/components/Footer";
+import TopUpDetail from "./form/ml";
 
-// Inisialisasi Supabase Client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -49,7 +49,7 @@ export default function Home() {
         title="Top-Up Game"
         products={products.filter((p) => p.category === "topup-games")}
       />
-
+      <TopUpDetail/>
       <Footer />
     </div>
   );
